@@ -14,6 +14,9 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.n
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class PersonController {
 	@Bean
 	RouterFunction<?> routes(PersonRespository personRespository) {
