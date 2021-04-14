@@ -20,6 +20,8 @@ public class PersonController {
 		return nest(path("/person"),
 				route(RequestPredicates.GET("/{id}"),
 						request -> ok().body(personRespository.findById(request.pathVariable("id")), Person.class))
+								.andRoute(RequestPredicates.GET("/"),
+										request -> ok().body(personRespository.findAll(), Person.class))
 								.andRoute(method(HttpMethod.POST), request -> {
 									personRespository.insert(request.bodyToMono(Person.class)).subscribe();
 									return ok().build();
